@@ -45,8 +45,8 @@ if [ ! -e "$ROOTFS_DIR/.installed" ]; then
   
   if [ -f "$ROOTFS_DIR/proot-${ARCH}" ]; then
     echo "Копиране на локалния файл proot-${ARCH}..."
-    cp "$ROOTFS_DIR/proot-${ARCH}" "$ROOTFS_DIR/usr/local/bin/proot"
-    chmod 755 "$ROOTFS_DIR/usr/local/bin/proot"
+    cp "$ROOTFS_DIR/proot-${ARCH}" "$ROOTFS_DIR/usr/local/bin/proott"
+    chmod 755 "$ROOTFS_DIR/usr/local/bin/proott"
   else
     echo "Грешка: Файлът proot-${ARCH} не е намерен в тази папка!"
     exit 1
