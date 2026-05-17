@@ -72,7 +72,13 @@ display_gg() {
 clear
 display_gg
 
-# Стартиране на proot средата
-$ROOTFS_DIR/usr/local/bin/proot \
-  --rootfs="${ROOTFS_DIR}" \
-  -0 -w "/root" -b /dev -b /sys -b /proc -b /etc/resolv.conf --kill-on-exit
+unset LD_PRELOAD
+export PROOT_NO_SECCOMP=1
+
+mkdir -p "$ROOTFS_DIR/roott"
+
+exec $ROOTFS_DIR/usr/local/bin/proott \
+  -r "$ROOTFS_DIR" \
+  -0 \
+  -w /roott \
+  /bin/sh
